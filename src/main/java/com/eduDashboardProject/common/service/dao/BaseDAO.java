@@ -14,4 +14,7 @@ public interface BaseDAO {
 	
 	public int delete(String id, Object object);
 	
+	//로그인 확인
+	public int checkLogin(String id,Object object);
+	
 }

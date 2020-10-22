@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="noticeMapper">
+
+	<select id="getBoardList"
+		resultType="com.eduDashboardProject.notice.dto.NoticeDto">
+		select * from board
+	</select>
+
+	<insert id="insertBoard">
+		insert into
+		board(user_number,title,identification,comment)
+		values(#{userInfo.user_number},#{title},#{userInfo.identification},#{comment})
+	</insert>
+	
+	
+	<select id="getBoardListByno"
+		resultType="com.eduDashboardProject.notice.dto.NoticeDto">
+		select * from board where board_number=#{boardno}
+	</select>
+
+
+
+
+</mapper>

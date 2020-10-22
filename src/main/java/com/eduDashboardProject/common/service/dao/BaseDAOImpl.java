@@ -33,4 +33,12 @@ public class BaseDAOImpl implements BaseDAO {
 		return sqlSession.delete(id, object);
 	}
 
+	@Override
+	public int checkLogin(String id, Object object) {
+		
+		return sqlSession.selectOne(id,object);
+	}
+	
+	
+
 }
