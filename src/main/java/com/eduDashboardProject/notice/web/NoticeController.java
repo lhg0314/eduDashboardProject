@@ -54,12 +54,59 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/detail")
-	public String updateNotice(HttpServletRequest req) {
+	public String detailNotice(HttpServletRequest req,Model model) {
 		int boardno=Integer.parseInt(req.getParameter("boardno"));
 		NoticeDto board=noticeService.getNoticeByno(boardno);
-		System.out.println(board);
+//		System.out.println(board);
+		model.addAttribute("board",board);
 		
-		return null;
+		return "notice/detail";
 		
 	}
+	
+	
+	@RequestMapping("/update")
+	public String updateNotice(HttpServletRequest req,Model model) {
+		int boardno=Integer.parseInt(req.getParameter("boardno"));
+		NoticeDto board=noticeService.getNoticeByno(boardno);
+		model.addAttribute("board",board);
+		return "notice/update";
+	} 
+	
+	@RequestMapping("/updateimpl")
+	
+	public String updateNoticeImpl(@RequestParam int boardno, @RequestParam String title,@RequestParam String content) {
+		Map<String,Object> map=new HashMap<String, Object>();
+		map.put("title",title);
+		map.put("comment",content);
+		map.put("boardno",boardno);
+		
+		noticeService.updateNotice(map);
+		
+		
+		return "redirect:/notice/detail?boardno="+boardno;
+	}
+	
+	@RequestMapping("/delete")
+	public String deleteNotice(@RequestParam int boardno) {
+		noticeService.deleteNotice(boardno);
+		return "redirect:/notice/list";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

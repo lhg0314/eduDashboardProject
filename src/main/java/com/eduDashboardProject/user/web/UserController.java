@@ -47,6 +47,13 @@ public class UserController {
 		return chk_result+"";
 	}
 	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("userInfo");
+		session.invalidate();
+		return "redirect:/user/login";
+	}
+	
 	
 
 }

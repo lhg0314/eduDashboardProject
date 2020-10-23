@@ -34,6 +34,18 @@ public class NoticeServiceImpl implements NoticeService{
 		
 	}
 
+	@Override
+	public void updateNotice(Object map) {
+		// TODO Auto-generated method stub
+		noticeDao.updateNotice(map);
+	}
+
+	@Override
+	public void deleteNotice(int boardno) {
+		// TODO Auto-generated method stub
+		noticeDao.deleteNotice(boardno);
+	}
+
 	
 
 }

@@ -11,7 +11,7 @@
 	<insert id="insertBoard">
 		insert into
 		board(user_number,title,identification,comment)
-		values(#{userInfo.user_number},#{title},#{userInfo.identification},#{comment})
+		values(#{userInfo.user_number},#{title},#{userInfo.identification},#{content})
 	</insert>
 	
 	
@@ -20,7 +20,15 @@
 		select * from board where board_number=#{boardno}
 	</select>
 
-
-
+	<update id="updateNotice">
+		update board 
+	set title=#{title},comment=#{comment}
+	where board_number=#{boardno}
+	</update>
+	
+	
+	<delete id="deleteNotice">
+		delete from board where board_number=#{boardno}
+	</delete>
 
 </mapper>

@@ -29,4 +29,14 @@ public class NoticeDao {
 		return sqlSession.selectOne("noticeMapper.getBoardListByno",boardno);
 	}
 
+	public void updateNotice(Object map) {
+		// TODO Auto-generated method stub
+		sqlSession.update("noticeMapper.updateNotice",map);
+	}
+
+	public void deleteNotice(int boardno) {
+		// TODO Auto-generated method stub
+		sqlSession.delete("noticeMapper.deleteNotice",boardno);
+	}
+
 }

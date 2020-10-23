@@ -26,25 +26,27 @@
 </head>
 <body>
 <div class="login-form" style="width: 600px; margin: 0 auto;">
-    <form action="/notice/insert" method="post">
+    <form action="/notice/updateimpl" method="post">
 		
 
 		<br>
-        <h3 class="text-center">게시물 작성</h3>
+        <h3 class="text-center">게시물 수정</h3>
         <br>
         
         <div class="form-group">
-        	<input type="text" class="form-control" id="title" name="title" placeholder="제목 입력" required="required">
+        	<input type="text" class="form-control" id="title" name="title" value="${board.title }" required="required">
         </div>
         
 		<div class="form-group">
-            <textarea  class="form-control" id="content" name="content" placeholder="내용 입력" required="required"></textarea>
+            <textarea  class="form-control" id="content" name="content" required="required">${board.comment }</textarea>
         </div> 
         
-        <span id="login-check-msg" class="login-check-msg" style="font-size: 8px; text-align: center;"></span>
+       <div class="form-group">
+        	<input type="hidden" class="form-control" id="boardno" name="boardno" value="${board.board_number }" required="required">
+        </div>
             
         <div class="form-group">
-            <button type="submit"  class="btn btn-success btn-lg btn-block">등록하기</button>
+            <button type="submit"  class="btn btn-danger btn-lg btn-block">수정하기</button>
         </div>
 		
     </form>

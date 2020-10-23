@@ -34,7 +34,8 @@
 	<br>
 	<h3 class="text-center">게시판</h3>
 	<br>
-	<button class="btn pull-right" onclick="location.href='/notice/write'">글쓰기</button>
+	<button style="margin-left: 10px;" class="btn pull-right" onclick="location.href='/notice/write'">글쓰기</button>
+	<button class="btn btn-danger pull-right" onclick="location.href='/user/logout'">로그아웃</button>
 	<br><br>
 	<table class="table table-hover center">
 		<tr>
@@ -50,7 +51,7 @@
 			<tr>
 				<td>${l.identification }</td>
 				<td>${l.board_number }</td>
-				<td>${l.title }</td>
+				<td><a href="/notice/detail?boardno=${l.board_number }">${l.title }</a></td>
 				<td>${l.create_date }</td>
 				<td>${l.user_number }</td>
 			</tr>
