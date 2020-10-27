@@ -203,6 +203,11 @@
 		</dependency>
 	</dependencies>
 	<build>
+	
+	<defaultGoal>clean_install</defaultGoal>
+	
+	
+	
 		<finalName>eduDashboardProject</finalName>
 		<plugins>
 			<plugin>
