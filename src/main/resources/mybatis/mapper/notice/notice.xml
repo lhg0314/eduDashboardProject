@@ -5,30 +5,30 @@
 
 	<select id="getBoardList"
 		resultType="com.eduDashboardProject.notice.dto.NoticeDto">
-		select * from board
+		select * from board_hj
 	</select>
 
 	<insert id="insertBoard">
 		insert into
-		board(user_number,title,identification,comment)
+		board_hj(user_number,title,identification,comment)
 		values(#{userInfo.user_number},#{title},#{userInfo.identification},#{content})
 	</insert>
 	
 	
 	<select id="getBoardListByno"
 		resultType="com.eduDashboardProject.notice.dto.NoticeDto">
-		select * from board where board_number=#{boardno}
+		select * from board_hj where board_number=#{boardno}
 	</select>
 
 	<update id="updateNotice">
-		update board 
+		update board_hj 
 	set title=#{title},comment=#{comment}
 	where board_number=#{boardno}
 	</update>
 	
 	
 	<delete id="deleteNotice">
-		delete from board where board_number=#{boardno}
+		delete from board_hj where board_number=#{boardno}
 	</delete>
 
 </mapper>
