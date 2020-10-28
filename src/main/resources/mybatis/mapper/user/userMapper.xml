@@ -4,13 +4,13 @@
 <mapper namespace="userMapper">
 
 	<select id="userChk" resultType="int">
-		select COUNT(*) from user_hj
+		select COUNT(*) from user
 		where identification=#{id} and password=#{pw}
 	</select>
 	
 	
 	<select id="selectUser" resultType="com.eduDashboardProject.user.dto.UserDto">
-		select * from user_hj
+		select * from user
 		where identification=#{id} and password=#{pw}
 	</select>
 
