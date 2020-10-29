@@ -45,6 +45,12 @@ function loginCheck(){
 	});
 }
 
+
+function join(){
+	
+	location.href="/user/join";
+}
+
 </script>
 
 
@@ -74,6 +80,9 @@ function loginCheck(){
             
         <div class="form-group">
             <button type="button" id="loginBtn" name="idBtn" onclick="loginCheck()" class="btn btn-primary btn-lg btn-block">로그인</button>
+        </div>
+        <div class="form-group">
+            <button type="button" id="joinBtn" name="joinBtn" onclick="join()" class="btn btn-default btn-lg btn-block">회원가입</button>
         </div>
 		
     </form>

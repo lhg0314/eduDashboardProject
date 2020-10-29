@@ -1,5 +1,7 @@
 package com.eduDashboardProject.user.dao;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -22,6 +24,16 @@ public class UserDao {
 	
 	public UserDto getUserInfo(Object object) {
 		return sqlSession.selectOne("userMapper.selectUser",object);
+	}
+
+	public int checkLoginId(String inputId) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("userMapper.checkJoinId", inputId);
+	}
+
+	public int insertUser(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("userMapper.insertUser", map);
 	}
 
 }

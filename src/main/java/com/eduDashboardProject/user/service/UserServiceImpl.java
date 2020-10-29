@@ -28,4 +28,16 @@ public class UserServiceImpl implements UserService{
 		return userDao.getUserInfo(map);
 	}
 
+	@Override
+	public int checkJoinId(String inputId) {
+		// TODO Auto-generated method stub
+		return userDao.checkLoginId(inputId);
+	}
+
+	@Override
+	public int insertUser(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return userDao.insertUser(map);
+	}
+
 }

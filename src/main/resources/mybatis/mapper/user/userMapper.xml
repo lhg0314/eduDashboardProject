@@ -13,6 +13,14 @@
 		select * from user_hj
 		where identification=#{id} and password=#{pw}
 	</select>
+	
+	<select id="checkJoinId" resultType="int">
+		select count(*) from user_hj where identification=#{inputId}
+	</select>
+	
+	<insert id="insertUser">
+		insert into user_hj(identification,password,name) values(#{id},#{pw},#{name});
+	</insert>
 
 
 </mapper>

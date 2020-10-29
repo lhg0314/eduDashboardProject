@@ -10,4 +10,8 @@ public interface UserService {
 	
 	public UserDto getUserInfo(Object map);
 
+	public int checkJoinId(String inputId);
+
+	public int insertUser(Map<String, Object> map);
+
 }

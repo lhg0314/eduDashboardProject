@@ -79,6 +79,14 @@
 			<version>1.9.3</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.2</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -140,7 +148,7 @@
 			<version>2.11.1</version>
 		</dependency>
 
-		
+
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
@@ -203,11 +211,11 @@
 		</dependency>
 	</dependencies>
 	<build>
-	
-	<defaultGoal>clean_install</defaultGoal>
-	
-	
-	
+
+		<defaultGoal>clean_install</defaultGoal>
+
+
+
 		<finalName>eduDashboardProject</finalName>
 		<plugins>
 			<plugin>
