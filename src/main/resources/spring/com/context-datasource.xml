@@ -8,18 +8,34 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-	
-	<jee:jndi-lookup id="dataSource" jndi-name="jndi/eduDashboardProject" resource-ref="true" />
 
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<jee:jndi-lookup id="dataSource"
+		jndi-name="jndi/eduDashboardProject" resource-ref="true" />
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="mapperLocations" value="classpath:mybatis/mapper/*/*.xml"></property>
+		<property name="mapperLocations"
+			value="classpath:mybatis/mapper/*/*.xml"></property>
 	</bean>
 
-	<bean id="sqlsessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+	<bean id="sqlsessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 
-<!--
-	<util:properties id="githubProperties" location="classpath*:properties/github.properties"/>-->
+	<!-- 쿼리가 실행될때 로그를 찍어주는 프록시 객체를 만들어주는 객체 -->
+	<bean id="dataSourceSpied"
+		class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<constructor-arg ref="dataSource" />
+		<property name="logFormatter">
+			<bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+				<property name="loggingType" value="MULTI_LINE" />
+				<property name="sqlPrefix" value="SQL:::" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- <util:properties id="githubProperties" location="classpath*:properties/github.properties"/> -->
 </beans>
